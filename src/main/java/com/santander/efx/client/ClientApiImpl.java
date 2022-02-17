@@ -20,7 +20,7 @@ public class ClientApiImpl implements ClientApi, PriceObserver {
 
     public void updatePrice(Price price) {
         prices.put(price.getInstrumentName(), price);
-        log.info("ClientApiImpl received price: {}", price);
+        log.debug("Updated price: {}", price);
     }
 
 
