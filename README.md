@@ -32,12 +32,16 @@ Execute following command:
 
 ### Assumptions
 
-1. Prices are held in BigDecimal and are having scale up to 4 digits.
+1. Unique id in price message cannot be null / empty.
 
-2. Timestamps in the business logic are held in Unix time
+2. Prices are held in BigDecimal and are having scale up to 4 digits.
 
-3. The format of incoming messages is as follows: id, currency_pair, bid, ask, timestamp
+3. In case of empty ask/bid a value of 0 is be used.
 
-4. Currency pair has format CUR1/CUR2
+4. Timestamps in the business logic are held in Unix time
 
-5. Timestamp in messages has dd-MM-yyyy HH:mm:ss:SSS format
+5. The format of incoming messages is as follows: id, currency_pair, bid, ask, timestamp
+
+6. Currency pair has format CUR1/CUR2
+
+7. Timestamp in messages has dd-MM-yyyy HH:mm:ss:SSS format

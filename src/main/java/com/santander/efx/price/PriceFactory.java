@@ -29,6 +29,8 @@ public class PriceFactory {
     }
 
     private BigDecimal stringToAmount(String from) {
-        return new BigDecimal(Double.valueOf(from)).setScale(Price.SCALE, RoundingMode.HALF_EVEN);
+        return from != null && !from.isBlank() ?
+                new BigDecimal(Double.valueOf(from)).setScale(Price.SCALE, RoundingMode.HALF_EVEN)
+                : BigDecimal.ZERO;
     }
 }

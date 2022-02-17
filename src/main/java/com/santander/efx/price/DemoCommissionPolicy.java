@@ -26,7 +26,7 @@ public class DemoCommissionPolicy implements CommisionPolicy {
     }
 
     private BigDecimal multiplyWithScale(BigDecimal value, BigDecimal factor) {
-        return value != null ? value.multiply(factor)
-                .setScale(Price.SCALE, RoundingMode.HALF_EVEN) : BigDecimal.ZERO;
+        return value.multiply(factor)
+                .setScale(Price.SCALE, RoundingMode.HALF_EVEN);
     }
 }
