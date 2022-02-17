@@ -12,7 +12,7 @@ class DemoCommisionPolicyTest {
     private BigDecimal ask = getAmount( 1.2499);
     private BigDecimal bid = getAmount(1.2561);
     private String instrumentName = "abc";
-    private String timestamp = "def";
+    private long timestamp = 123L;
     private Price price = Price.builder()
             .instrumentName(instrumentName)
             .timestamp(timestamp)
@@ -22,7 +22,7 @@ class DemoCommisionPolicyTest {
     private CommisionPolicy commisionPolicy = new DemoCommisionPolicy();
 
     @Test
-    void apply() {
+    void shouldModifyAsk() {
         // given - when
         Price result = commisionPolicy.apply(price);
 
@@ -30,8 +30,19 @@ class DemoCommisionPolicyTest {
         assertEquals(instrumentName, result.getInstrumentName());
         assertEquals(timestamp, result.getTimestamp());
         assertEquals(getAmount(1.2511), result.getAsk());
+    }
+
+    @Test
+    void shouldModifyBid() {
+        // given - when
+        Price result = commisionPolicy.apply(price);
+
+        // then
+        assertEquals(instrumentName, result.getInstrumentName());
+        assertEquals(timestamp, result.getTimestamp());
         assertEquals(getAmount(1.2548), result.getBid());
     }
+
 
     private BigDecimal getAmount(double value) {
         return new BigDecimal(value).setScale(Price.SCALE, RoundingMode.HALF_EVEN);

@@ -23,7 +23,7 @@ class MarketPriceSubscriberImplTest {
     @InjectMocks private MarketPriceSubscriberImpl marketPriceSubscriber;
 
     @Test
-    void onMessage() {
+    void shouldInvokeClient() {
         // given
         String message = "anc";
         when(priceFactory.create(message)).thenReturn(basePrice);
