@@ -9,7 +9,7 @@ import java.math.RoundingMode;
  * Adds 0.1% to Ask and subtracts 0.1% from Bid
  */
 @Component
-public class DemoCPolicy implements CommisionPolicy {
+public class DemoCommissionPolicy implements CommisionPolicy {
 
     private static final BigDecimal ASK_FACTOR = new BigDecimal("1.001");
     private static final BigDecimal BID_FACTOR = new BigDecimal("0.999");

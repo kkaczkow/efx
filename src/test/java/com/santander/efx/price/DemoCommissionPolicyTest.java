@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DemoCommisionPolicyTest {
+class DemoCommissionPolicyTest {
 
     private BigDecimal ask = getAmount( 1.2499);
     private BigDecimal bid = getAmount(1.2561);
@@ -19,7 +19,7 @@ class DemoCommisionPolicyTest {
             .ask(ask)
             .bid(bid)
             .build();
-    private CommisionPolicy commisionPolicy = new DemoCommisionPolicy();
+    private CommisionPolicy commisionPolicy = new DemoCommissionPolicy();
 
     @Test
     void shouldModifyAsk() {
