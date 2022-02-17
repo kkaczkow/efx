@@ -11,9 +11,11 @@ class DemoCommissionPolicyTest {
 
     private BigDecimal ask = getAmount( 1.2499);
     private BigDecimal bid = getAmount(1.2561);
+    private int id = 123;
     private String instrumentName = "abc";
     private long timestamp = 123L;
     private Price price = Price.builder()
+            .id(id)
             .instrumentName(instrumentName)
             .timestamp(timestamp)
             .ask(ask)
@@ -27,8 +29,6 @@ class DemoCommissionPolicyTest {
         Price result = commisionPolicy.apply(price);
 
         // then
-        assertEquals(instrumentName, result.getInstrumentName());
-        assertEquals(timestamp, result.getTimestamp());
         assertEquals(getAmount(1.2511), result.getAsk());
     }
 
@@ -38,9 +38,48 @@ class DemoCommissionPolicyTest {
         Price result = commisionPolicy.apply(price);
 
         // then
+        assertEquals(getAmount(1.2548), result.getBid());
+    }
+
+    @Test
+    void shouldApplyZero_WhenBidIsNull() {
+        // given
+        price = Price.builder()
+                .id(id)
+                .bid(null)
+                .build();
+
+        // when
+        Price result = commisionPolicy.apply(price);
+
+        // then
+        assertEquals(BigDecimal.ZERO, result.getBid());
+    }
+
+    @Test
+    void shouldApplyZero_WhenAskIsNull() {
+        // given
+        price = Price.builder()
+                .id(id)
+                .ask(null)
+                .build();
+
+        // when
+        Price result = commisionPolicy.apply(price);
+
+        // then
+        assertEquals(BigDecimal.ZERO, result.getAsk());
+    }
+
+    @Test
+    void shouldKeepOtherValuesNotChanged() {
+        // given - when
+        Price result = commisionPolicy.apply(price);
+
+        // then
         assertEquals(instrumentName, result.getInstrumentName());
         assertEquals(timestamp, result.getTimestamp());
-        assertEquals(getAmount(1.2548), result.getBid());
+        assertEquals(id, result.getId());
     }
 
 

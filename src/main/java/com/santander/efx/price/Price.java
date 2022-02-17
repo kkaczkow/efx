@@ -1,9 +1,13 @@
 package com.santander.efx.price;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.ToString;
 
 import java.math.BigDecimal;
-import java.time.format.DateTimeFormatter;
 
 /**
  * The assumption taken was taking price scale up to 4 digits.
@@ -14,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Price {
     public static int SCALE = 4;
+    @NonNull
     private Integer id;
     private String instrumentName;
     private BigDecimal bid;
