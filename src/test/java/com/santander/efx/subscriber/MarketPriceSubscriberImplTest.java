@@ -1,6 +1,6 @@
 package com.santander.efx.subscriber;
 
-import com.santander.efx.client.ClientApi;
+import com.santander.efx.client.ClientApiImpl;
 import com.santander.efx.price.CommisionPolicy;
 import com.santander.efx.price.Price;
 import com.santander.efx.price.PriceFactory;
@@ -10,13 +10,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class MarketPriceSubscriberImplTest {
 
-    @Mock private ClientApi clientApi;
+    @Mock private ClientApiImpl clientApi;
     @Mock private PriceFactory priceFactory;
     @Mock private CommisionPolicy commisionPolicy;
     @Mock private Price basePrice;

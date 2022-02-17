@@ -1,6 +1,6 @@
 package com.santander.efx.subscriber;
 
-import com.santander.efx.client.ClientApi;
+import com.santander.efx.client.ClientApiImpl;
 import com.santander.efx.price.CommisionPolicy;
 import com.santander.efx.price.Price;
 import com.santander.efx.price.PriceFactory;
@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 public class MarketPriceSubscriberImpl implements MarketPriceSubscriber {
 
-    private final ClientApi clientApi;
+    private final ClientApiImpl clientApi;
     private final PriceFactory priceFactory;
     private final CommisionPolicy commisionPolicy;
 
