@@ -42,36 +42,6 @@ class DemoCommissionPolicyTest {
     }
 
     @Test
-    void shouldApplyZero_WhenBidIsNull() {
-        // given
-        price = Price.builder()
-                .id(id)
-                .bid(null)
-                .build();
-
-        // when
-        Price result = commisionPolicy.apply(price);
-
-        // then
-        assertEquals(BigDecimal.ZERO, result.getBid());
-    }
-
-    @Test
-    void shouldApplyZero_WhenAskIsNull() {
-        // given
-        price = Price.builder()
-                .id(id)
-                .ask(null)
-                .build();
-
-        // when
-        Price result = commisionPolicy.apply(price);
-
-        // then
-        assertEquals(BigDecimal.ZERO, result.getAsk());
-    }
-
-    @Test
     void shouldKeepOtherValuesNotChanged() {
         // given - when
         Price result = commisionPolicy.apply(price);
