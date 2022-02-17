@@ -36,9 +36,7 @@ Execute following command:
 
 2. Timestamps in the business logic are held in Unix time
 
-3. The format of incoming messages is as follows:
- 
-<id>, <currency_pair>, <bid>, <ask>, <timestamp>
+3. The format of incoming messages is as follows: id, currency_pair, bid, ask, timestamp
 
 4. Currency pair has format CUR1/CUR2
 
