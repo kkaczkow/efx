@@ -19,9 +19,12 @@ public class ClientApiImpl implements ClientApi, PriceObserver {
     }
 
     public void updatePrice(Price price) {
-        prices.put(price.getInstrumentName(), price);
-        log.debug("Updated price: {}", price);
+        Price currentLatest = prices.get(price.getInstrumentName());
+        if (currentLatest != null && price.getTimestamp() >= currentLatest.getTimestamp()) {
+            prices.put(price.getInstrumentName(), price);
+            log.debug("Updated price: {}", price);
+            return;
+        }
+        log.debug("Skipped price: {}", price);
     }
-
-
 }
