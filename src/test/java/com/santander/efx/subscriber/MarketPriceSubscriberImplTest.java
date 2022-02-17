@@ -1,6 +1,6 @@
 package com.santander.efx.subscriber;
 
-import com.santander.efx.client.ClientApiImpl;
+import com.santander.efx.client.PriceObserver;
 import com.santander.efx.price.CommisionPolicy;
 import com.santander.efx.price.Price;
 import com.santander.efx.price.PriceFactory;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class MarketPriceSubscriberImplTest {
 
-    @Mock private ClientApiImpl clientApi;
+    @Mock private PriceObserver clientApi;
     @Mock private PriceFactory priceFactory;
     @Mock private CommisionPolicy commisionPolicy;
     @Mock private Price basePrice;

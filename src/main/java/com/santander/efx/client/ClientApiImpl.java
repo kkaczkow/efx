@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 @Service
-public class ClientApiImpl implements ClientApi {
+public class ClientApiImpl implements ClientApi, PriceObserver {
 
     private final Map<String, Price> prices = new ConcurrentHashMap<>();
 
